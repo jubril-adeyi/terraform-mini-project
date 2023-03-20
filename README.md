@@ -1,4 +1,5 @@
-# Using terraform to create a cloud infrastructure on AWS with 3 EC2 Inastances, Vpc and Security group configuration, placing the instances behind a load balancer and AWS Route53 to route the load balancer to a desired domain name. And Using Ansible to install Apache (web-server) on the 3 Instances So they Display the Simple HTML content on all 3 instances.
+# Using terraform to create a cloud infrastructure on AWS with 3 EC2 Inastances, Vpc and Security group configuration, placing the instances behind a load balancer and AWS Route53 to route the load balancer to a desired domain name. 
+# And Using Ansible to install Apache (web-server) on the 3 Instances So they Display the Simple HTML content on all 3 instances.
 
 ## Summary
 * Create a Teraform script that creates neccesary components of the infrastructure on AWS and exports the public IP addrresss of all instances into /project/host-inventory file 

@@ -67,7 +67,7 @@ resource "local_file" "host-inventory" {
  ```
  #### This inventory file is required  by ansible to target the instances for configuration 
  
- #### The project/ansible.cfg contains the configuration that specifies the host-inventory files that will be used by ansible and  teh neccesary credentials for configuration management 
+ #### The project/ansible.cfg contains the configuration that specifies the host-inventory files that will be used by ansible and the neccesary credentials for configuration management 
  
  *  With the neccesary files for ansible already created and configured, the ansible script; project/main.yaml applies all the configuration for setting up an apache server to the EC2 Instances. 
 

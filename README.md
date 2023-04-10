@@ -33,12 +33,12 @@ $ Default region name [None]: <YOUR_AWS_REGION>
 #### The directories ; modules/ec2 , modules/aws-lb and modules/route53 contain the scripts to create the EC2 instances, Application load Balancer and the Route53 servcice. 
 #### <b>These modules contain variables.tf and ouput.tf files that contains the neccesary variables and output values required by the module scripts </b>
 
-* Proceed to run the terraform scripts: Usign the the commands below on the terminal 
+* Proceed to run the terraform scripts: Using the the commands below on the terminal 
 * Initialize terraform to install neccesary providers 
 ```bash 
 terraform init 
  ```
-* Terraform plan Lays out the events that wil be initiated with the terraform scripts 
+* Terraform plan displays the events that wil be initiated with the terraform scripts 
 * 
 ```bash 
 terraform plan 

@@ -31,16 +31,10 @@ Follow these steps to get started with provisioning the infrastructure using Ter
 
 * Initialize terraform by running the following command :
 `terraform init `
-* Terraform plan displays the events that wil be initiated with the terraform scripts 
-* 
-```bash 
-terraform plan 
- ```
-* Terraform apply Starts and completes the creation of the infrastrcture
-
- ```bash 
-terraform apply
- ```
+* Run the terraform plan command to see Preview the changes that will be applied : 
+`terraform plan`
+* Now Run the Terraform apply command to apply these changes and provision architecture and resources
+ `terraform apply`
 
 
 

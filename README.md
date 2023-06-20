@@ -8,6 +8,16 @@ This repository contains terraform code for Provisioning infrastructure and crea
 * Route53 service for serving a public DNS that will be routed to the Application load balancer. 
 Also, terraform code to create an host-inventory file; containing Ip addresses of the provisioned ec2 instances.  
 
+Ansible code for System configuration on the provisioned instances to set up the servers with the following : 
+
+* Configuration of an Apache web-server with HTML content that identifies the hostname of each server; This is to demonstrate the load balancer functioning. 
+# Prerequisites
+
+* AWS account IAM credentials with necessary permisions for provision resources
+* AWS CLI Installed on your machine 
+* Terraform Installed on your machine 
+* Ansible Installed on your machine 
+
 ```bash 
  aws configure
  ```

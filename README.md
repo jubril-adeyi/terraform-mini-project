@@ -1,4 +1,13 @@
 # Infrastructure provisioning on AWS using terraform and System configuration using Ansible. 
+
+This repository contains terraform code for Provisioning infrastructure and create resources on AWS cloud. this architecture will consist of :
+* A VPC network with 3 subnets in three availability zones
+* 3 Ec2 instances 
+* An Application load balancer 
+* 2 Security groups for the Application Load Balancer and the Ec2 Instances
+* Route53 service for serving a public DNS that will be routed to the Application load balancer. 
+Also, terraform code to create an host-inventory file; containing Ip addresses of the provisioned ec2 instances.  
+
 ```bash 
  aws configure
  ```

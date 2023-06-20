@@ -18,6 +18,13 @@ Ansible code for System configuration on the provisioned instances to set up the
 * Terraform Installed on your machine 
 * Ansible Installed on your machine 
 
+# Getting started 
+
+Follow these steps to get started with provisioning the infrastructure using Terraform. 
+
+* Clone this repository to your local machine : 
+git clone 
+
 ```bash 
  aws configure
  ```

@@ -36,16 +36,36 @@ Follow these steps to get started with provisioning the infrastructure using Ter
 * Now Run the Terraform apply command to apply these changes and provision architecture and resources
  `terraform apply`
 
+# Repository Structure:
+
+This repository contains two main directories: "/modules" and "/project."
+
+1. Modules Directory: The "modules" directory houses reusable Terraform modules for provisioning specific infrastructure components. Each subdirectory within the "modules" directory represents a separate module responsible for creating a particular set of resources. For example, there are modules for VPC network, security groups, Application Load Balancer (ALB), EC2 instances, and Route53 service.
+
+Inside each module subdirectory, you will typically find the following Terraform files:
+
+* variable.tf: This file defines input variables used to customize the behavior of the module.
+* outputs.tf: This file specifies the outputs produced by the module, which can be referenced by other parts of the configuration.
+* main.tf: This file contains the main Terraform code that provisions the resources defined by the module. It utilizes the input variables and include and the resource definitions.
+
+2. Project Directory: The "project" directory contains the Terraform code responsible for orchestrating the provisioning of resources defined in the "/modules" directory. This code brings together the desired modules and specifies their interactions and dependencies.
+
+The "project" directory also include additional Terraform files:
+
+* variables.tf: This file defines project-level variables that can be used across multiple modules or parts of the configuration.
+* main.tf: This file acts as the entry point for the project configuration. It includes the necessary module declarations and  additional resources definitions or configurations. 
+
+Architecture Overview 
+
+The following resources and architecture are provisioned in the us-east-1 region : 
+
+1. An Application load balancer; Serves as entry point for End users. 
+2. VPC network; Created, with Multiple subnets in multiple availability zones 
+3. Ec2 Instances: Deployed across multiple availability zones and houses web  server application. 
+4. Amazon Route53 service: Responsible for serving Host DNS that routes traffic into the Application load balancer 
 
 
-* Now that the infrastructre has been provisoned, Proceed to creating Ansible script to install and set up Apache om the target EC2 instances 
-
-#### In the project/main.tf file the script below exports the public ip address of the Instances into the project/host-inventory file.
-
-```bash 
-resource "local_file" "host-inventory" {
-  filename = "host-inventory"
-  content = <<EOT
+* 
   ${aws_instance.server[0].public_ip}
   ${aws_instance.server[1].public_ip}
   ${aws_instance.server[2].public_ip}

@@ -23,31 +23,14 @@ Ansible code for System configuration on the provisioned instances to set up the
 Follow these steps to get started with provisioning the infrastructure using Terraform. 
 
 * Clone this repository to your local machine : 
-git clone 
+`git clone `
+* Cd into cloned the directory 
+`cd terraform-mini-project`
+* Cd into the /project directory 
+`cd /project`
 
-```bash 
- aws configure
- ```
-
-$ AWS Access Key ID [None]: <YOUR_AWS_ACCESS_KEY_ID>
-
-$ AWS Secret Access Key [None]: <YOUR_AWS_SECRET_ACCESS_KEY>
-
-$ Default region name [None]: <YOUR_AWS_REGION>
-
-* Proceed to creating a terraform script 
-
-#### The terraform script; poject/main.tf creates all the components of the infrasructure. 
-#### <b>project/variables.tf</b> contains all the required variables used in the main terraform script. 
-#### The Modules : sg and vpc (contain the scripts for setting up the vpc network snd security groups) are located in the modules/sg and modules/vpc fodlers respectively. 
-#### The directories ; modules/ec2 , modules/aws-lb and modules/route53 contain the scripts to create the EC2 instances, Application load Balancer and the Route53 servcice. 
-#### <b>These modules contain variables.tf and ouput.tf files that contains the neccesary variables and output values required by the module scripts </b>
-
-* Proceed to run the terraform scripts: Using the the commands below on the terminal 
-* Initialize terraform to install neccesary providers 
-```bash 
-terraform init 
- ```
+* Initialize terraform by running the following command :
+`terraform init `
 * Terraform plan displays the events that wil be initiated with the terraform scripts 
 * 
 ```bash 

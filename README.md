@@ -13,7 +13,7 @@ Ansible code for System configuration on the provisioned instances to set up the
 * Configuration of an Apache web-server with HTML content that identifies the hostname of each server; This is to demonstrate the load balancer functioning. 
 # Prerequisites
 
-* AWS account IAM credentials with necessary permisions for provision resources
+* AWS account, IAM credentials with necessary permissions to provision resources
 * AWS CLI Installed on your machine 
 * Terraform Installed on your machine 
 * Ansible Installed on your machine 

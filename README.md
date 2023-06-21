@@ -67,12 +67,13 @@ The following resources and architecture are provisioned in the us-east-1 region
 # System Configurations Using Ansible 
 
 The Terraform code below creates an host-inventory file in the /project directory:
-```{
+```resource "local_file" "host-inventory" {
+  filename = "host-inventory"
+  content = <<EOT
   ${aws_instance.server[0].public_ip}
   ${aws_instance.server[1].public_ip}
   ${aws_instance.server[2].public_ip}
     EOT
-}
  ```
  #### This inventory file is required  by ansible to target the instances for configuration 
  

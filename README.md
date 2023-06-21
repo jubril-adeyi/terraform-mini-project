@@ -11,7 +11,7 @@ Also, terraform code to create an host-inventory file; containing Ip addresses o
 Ansible code for System configuration on the provisioned instances to set up the servers with the following : 
 
 * Configuration of an Apache web-server with HTML content that identifies the hostname of each server; This is to demonstrate the load balancer functioning. 
-# Prerequisites
+## Prerequisites
 
 * AWS account, IAM credentials with necessary permissions to provision resources
 * AWS CLI Installed on your machine 

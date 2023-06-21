@@ -75,11 +75,13 @@ The Terraform code below creates an host-inventory file in the /project director
   ${aws_instance.server[2].public_ip}
     EOT
  ```
- #### This inventory file is required  by ansible to target the instances for configuration 
- 
- #### The project/ansible.cfg contains the configuration that specifies the host-inventory files that will be used by ansible and the neccesary credentials for configuration management 
- 
- *  With the neccesary files for ansible already created and configured, the ansible script; project/main.yaml applies all the configuration for setting up an apache server to the EC2 Instances. 
+
+This file contains the Ip address of the servers provisioned earlier and is required  for ansible to target the instances for configuration 
+
+
+Other files necessary for the Ansible configuration includes; the main.yaml file which contains Ansible code to configure the web-servers on the ec2 Instances, and the ansible.cfg file which configures defaults and privilege escalations for the execution of the ansible command. 
+
+
 
 
 

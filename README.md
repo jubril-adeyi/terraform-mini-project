@@ -80,7 +80,8 @@ This file contains the Ip address of the servers provisioned earlier and is requ
 
 
 Other files necessary for the Ansible configuration includes; the main.yaml file which contains Ansible code to configure the web-servers on the ec2 Instances, and the ansible.cfg file which configures defaults and privilege escalations for the execution of the ansible command
-` ansible-playbook -i host-inventory main.yaml`
+
+To execute ansible confugurations on the servers run this command in the `/project` directory :  ` ansible-playbook -i host-inventory main.yaml`
 
 
 

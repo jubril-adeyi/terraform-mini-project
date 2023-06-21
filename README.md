@@ -87,7 +87,7 @@ To execute ansible configurations on the servers run this command in the `/proje
 
 To clean up the provisioned resources run the following command: `terraform destroy` ,  This will destroy all the resources created by Terraform. Please note that this action is irreversible and will permanently delete the resources.
 
-# Conclusion 
+## Conclusion 
 
 Using Terraform for Infrastructure as Code and Ansible for server configuration ensures a seamless and efficient process. Feel free to modify the code to fit your specific needs, and contributions are welcome.
 

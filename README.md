@@ -18,7 +18,7 @@ Ansible code for System configuration on the provisioned instances to set up the
 * Terraform Installed on your machine 
 * Ansible Installed on your machine 
 
-# Getting started 
+## Getting started 
 
 Follow these steps to get started with provisioning the infrastructure using Terraform. 
 
@@ -36,7 +36,7 @@ Follow these steps to get started with provisioning the infrastructure using Ter
 * Now Run the Terraform apply command to apply these changes and provision architecture and resources
  `terraform apply`
 
-# Repository Structure:
+## Repository Structure:
 
 This repository contains two main directories: "/modules" and "/project."
 
@@ -64,7 +64,7 @@ The following resources and architecture are provisioned in the us-east-1 region
 3. Ec2 Instances: Deployed across multiple availability zones and houses web  server application. 
 4. Amazon Route53 service: Responsible for serving Host DNS that routes traffic into the Application load balancer 
 
-# System Configurations Using Ansible 
+## System Configurations Using Ansible 
 
 The Terraform code below creates an host-inventory file in the /project directory:
 ```resource "local_file" "host-inventory" {
@@ -83,7 +83,7 @@ Other files necessary for the Ansible configuration includes; the main.yaml file
 
 To execute ansible configurations on the servers run this command in the `/project` directory :  ` ansible-playbook -i host-inventory main.yaml`
 
-# Cleaning up 
+## Cleaning up 
 
 To clean up the provisioned resources run the following command: `terraform destroy` ,  This will destroy all the resources created by Terraform. Please note that this action is irreversible and will permanently delete the resources.
 

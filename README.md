@@ -23,7 +23,7 @@ Ansible code for System configuration on the provisioned instances to set up the
 Follow these steps to get started with provisioning the infrastructure using Terraform. 
 
 * Clone this repository to your local machine : 
-`git clone `
+`git clone https://github.com/jubril-adeyi/terraform-mini-project.git`
 * Cd into cloned the directory 
 `cd terraform-mini-project`
 * Cd into the /project directory 

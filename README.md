@@ -79,7 +79,8 @@ The Terraform code below creates an host-inventory file in the /project director
 This file contains the Ip address of the servers provisioned earlier and is required  for ansible to target the instances for configuration 
 
 
-Other files necessary for the Ansible configuration includes; the main.yaml file which contains Ansible code to configure the web-servers on the ec2 Instances, and the ansible.cfg file which configures defaults and privilege escalations for the execution of the ansible command. 
+Other files necessary for the Ansible configuration includes; the main.yaml file which contains Ansible code to configure the web-servers on the ec2 Instances, and the ansible.cfg file which configures defaults and privilege escalations for the execution of the ansible command
+` ansible-playbook -i host-inventory main.yaml`
 
 
 

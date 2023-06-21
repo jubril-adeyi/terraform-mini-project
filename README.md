@@ -64,7 +64,9 @@ The following resources and architecture are provisioned in the us-east-1 region
 3. Ec2 Instances: Deployed across multiple availability zones and houses web  server application. 
 4. Amazon Route53 service: Responsible for serving Host DNS that routes traffic into the Application load balancer 
 
+System Configurations Using Ansible 
 
+The Terraform code below creates an host-inventory file in the /project directory:
 * 
   ${aws_instance.server[0].public_ip}
   ${aws_instance.server[1].public_ip}

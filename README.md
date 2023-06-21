@@ -81,10 +81,15 @@ This file contains the Ip address of the servers provisioned earlier and is requ
 
 Other files necessary for the Ansible configuration includes; the main.yaml file which contains Ansible code to configure the web-servers on the ec2 Instances, and the ansible.cfg file which configures defaults and privilege escalations for the execution of the ansible command
 
-To execute ansible confugurations on the servers run this command in the `/project` directory :  ` ansible-playbook -i host-inventory main.yaml`
+To execute ansible configurations on the servers run this command in the `/project` directory :  ` ansible-playbook -i host-inventory main.yaml`
 
+# Cleaning up 
 
+To clean up the provisioned resources run the following command: `terraform destroy` ,  This will destroy all the resources created by Terraform. Please note that this action is irreversible and will permanently delete the resources.
 
+# Conclusion 
+
+Using Terraform for Infrastructure as Code and Ansible for server configuration ensures a seamless and efficient process. Feel free to modify the code to fit your specific needs, and contributions are welcome.
 
 
 

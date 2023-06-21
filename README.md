@@ -55,7 +55,7 @@ The "project" directory also include additional Terraform files:
 * variables.tf: This file defines project-level variables that can be used across multiple modules or parts of the configuration.
 * main.tf: This file acts as the entry point for the project configuration. It includes the necessary module declarations and  additional resources definitions or configurations. 
 
-Architecture Overview 
+## Architecture Overview 
 
 The following resources and architecture are provisioned in the us-east-1 region : 
 

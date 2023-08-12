@@ -41,10 +41,7 @@ pipeline {
                         def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
                         
                         // Create the S3 bucket using Terraform
-                        sh "ls"
-                        sh "cd project"
-                        sh "ls"
-                        sh " terraform init \
+                        sh "cd project && terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " terraform plan\

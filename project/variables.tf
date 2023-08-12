@@ -9,6 +9,14 @@ variable "ec2_ami" {
   default     = "ami-09c583d8b568a9722"
   description = "machine image for instance creation"
 }
+variable "access_key" {
+  type    = string
+  default = ""
+}
+variable "secret_key" {
+  type    = string
+  default = ""
+}
 
 
 # // vpc variables 

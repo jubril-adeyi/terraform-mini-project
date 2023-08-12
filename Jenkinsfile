@@ -39,11 +39,9 @@ pipeline {
 
                         // Generate a unique S3 bucket name based on the current timestamp
                         def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
-
-                    
-
+                        
                         // Create the S3 bucket using Terraform
-                        sh "cd backend"
+                        sh "cd project"
                         sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "

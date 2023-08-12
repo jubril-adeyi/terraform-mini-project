@@ -41,8 +41,7 @@ pipeline {
                         def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
                         
                         // Create the S3 bucket using Terraform
-                        dir(project){
-                        sh " terraform init \
+                        dir('project'){sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " terraform plan\
@@ -50,10 +49,10 @@ pipeline {
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " terraform apply --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
-                            -var 'secret_key=${awsSecretAccessKey}' "
+                            -var 'secret_key=${awsSec   retAccessKey}' "
+                        }
                         // sh "terraform init -backend-config='bucket=${uniqueBucketName}' -backend-config='region=${awsRegion}'"
                         // sh "terraform apply -var 'bucket_name=${uniqueBucketName}'"
-                        }
                     }
                 }
             }

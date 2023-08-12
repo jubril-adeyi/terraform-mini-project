@@ -42,6 +42,7 @@ pipeline {
                         
                         // Create the S3 bucket using Terraform
                         sh "cd project"
+                        sh "ls"
                         sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "

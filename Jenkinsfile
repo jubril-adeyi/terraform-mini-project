@@ -49,7 +49,7 @@ pipeline {
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " terraform apply --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
-                            -var 'secret_key=${awsSec   retAccessKey}' "
+                            -var 'secret_key=${awsSecretAccessKey}' "
                         }
                         // sh "terraform init -backend-config='bucket=${uniqueBucketName}' -backend-config='region=${awsRegion}'"
                         // sh "terraform apply -var 'bucket_name=${uniqueBucketName}'"

@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy infrastructure') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'aws-access-key', passwordVariable: 'aws-secret-key', usernameVariable: 'aws-access-key')]) {
@@ -37,17 +37,17 @@ pipeline {
                         def awsRegion = sh(returnStdout: true, script: 'aws configure get region').trim()
                         def bucketName = 'terraformbucket'
 
-                        // Generate a unique S3 bucket name based on the current timestamp
-                        def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
+                        // // Generate a unique S3 bucket name based on the current timestamp
+                        // def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
                         
-                        // Create the S3 bucket using Terraform
+                        // Create infra using Terraform
                         dir('project'){sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " terraform plan\
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
-                        sh " terraform apply --auto-approve \
+                        sh " terraform deploy --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         }
@@ -57,5 +57,11 @@ pipeline {
                 }
             }
         }
+        // stage('Ansible System configuration'){
+        //     steps{
+        //         sh "apt-get install ansible"
+        //         sh "ansible --version"
+        //     }
+        // }
     }
 }

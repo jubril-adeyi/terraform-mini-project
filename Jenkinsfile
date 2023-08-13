@@ -21,10 +21,6 @@ pipeline {
                         sh "aws configure set aws_secret_access_key ${awsSecretAccessKey}"
                         sh "aws configure set region 'us-east-1'"
 
-                        // Retrieve other required environment variables
-                        def awsRegion = sh(returnStdout: true, script: 'aws configure get region').trim()
-                        def bucketName = 'terraformbucket'
-
                         // Create infra using Terraform
                         dir('project'){sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
@@ -32,9 +28,11 @@ pipeline {
                         sh " terraform plan\
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
-                        sh " terraform destroy --auto-approve \
+                        sh " terraform apply --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
+                            
+                        // Create host-inventory file for Ansible 
                         sh " cat host-inventory "
                         }
                     }

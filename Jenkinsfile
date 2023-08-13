@@ -35,18 +35,16 @@ pipeline {
                         sh " terraform plan\
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
-                        sh " terraform apply --auto-approve \
+                        sh " terraform destroy --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " cat host-inventory "
                         }
-                        // sh "terraform init -backend-config='bucket=${uniqueBucketName}' -backend-config='region=${awsRegion}'"
-                        // sh "terraform apply -var 'bucket_name=${uniqueBucketName}'"
                     }
                 }
             }
         }
-        stage('Ansible-System-configuration'){
+        stage('Ansible System-configuration'){
             steps{
                 dir('project'){ ansiblePlaybook credentialsId: 'key.pem', disableHostKeyChecking: true, installation: 'ansible', inventory: 'host-inventory', playbook: 'main.yaml'}
                 }

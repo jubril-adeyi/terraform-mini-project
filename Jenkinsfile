@@ -60,11 +60,9 @@ pipeline {
         }
         stage('Ansible-System-configuration'){
             steps{
-                dir('project'){
-                sh "apt-get install -y ansible"
-                sh " ansible --version "
+                ansiblePlaybook credentialsId: 'key.pem', installation: 'ansible', inventory: '/project/host-inventory', playbook: '/project/main.yaml'
+               
                 }
             }
-        }
     }
 }

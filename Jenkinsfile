@@ -47,7 +47,7 @@ pipeline {
                         sh " terraform plan\
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
-                        sh " terraform destroy --auto-approve \
+                        sh " terraform apply --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " cat host-inventory "
@@ -58,21 +58,11 @@ pipeline {
                 }
             }
         }
-        stage('Ansible System configuration'){
-            steps {
-                script {
-                    // withCredentials([file(credentialsId: 'key', variable: 'awsKeyPemFile')]) {
-                    //     def awsKeyPemContent = readFile awsKeyPemFile
-                    //     writeFile file: 'path/to/your/key.pem', text: awsKeyPemContent
-                    
-                    def awsKey = credentials('aws-key-pem') // Replace 'aws-key-pem' with your actual credential ID
-                    
-                    // Run Ansible playbook
-                    ansiblePlaybook(
-                        playbook: '/project',
-                        inventory: 'main.yml',
-                        credentialsId: awsKey.id
-                    )
+        stage('Ansible-System-configuration'){
+            steps{
+                dir('project'){
+                sh "sudo apt-get install -y ansible"
+                sh " ansible --version "
                 }
             }
         }

@@ -61,7 +61,7 @@ pipeline {
         stage('Ansible-System-configuration'){
             steps{
                 dir('project'){
-                sh "sudo apt-get install -y ansible"
+                sh "apt-get install -y ansible"
                 sh " ansible --version "
                 }
             }

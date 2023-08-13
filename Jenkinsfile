@@ -47,7 +47,7 @@ pipeline {
                         sh " terraform plan\
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
-                        sh " terraform destroy --auto-approve \
+                        sh " terraform apply --auto-approve \
                             -var 'access_key=${awsAccessKeyId}' \
                             -var 'secret_key=${awsSecretAccessKey}' "
                         sh " cat host-inventory "

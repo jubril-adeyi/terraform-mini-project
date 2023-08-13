@@ -60,7 +60,7 @@ pipeline {
         }
         stage('Ansible-System-configuration'){
             steps{
-                dir('project'){ ansiblePlaybook credentialsId: 'key.pem', disableHostKeyChecking: true, installation: 'ansible', inventory: '/project/host-inventory', playbook: '/project/main.yaml'}
+                dir('project'){ ansiblePlaybook credentialsId: 'key.pem', disableHostKeyChecking: true, installation: 'ansible', inventory: 'host-inventory', playbook: 'main.yaml'}
                 }
             }
     }

@@ -6,7 +6,7 @@ variable "aws_region" {
 }
 variable "ec2_ami" {
   type        = string
-  default     = "ami-08a52ddb321b32a8c"
+  default     = "ami-053b0d53c279acc90"
   description = "machine image for instance creation"
 }
 variable "access_key" {

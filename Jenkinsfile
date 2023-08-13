@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'aws-access-key', passwordVariable: 'aws-secret-key', usernameVariable: 'aws-access-key')]) {
-                        // Load AWS credentials
+                        // define AWS credentials
                         def awsAccessKeyId = env.'aws-access-key'
                         def awsSecretAccessKey = env.'aws-secret-key'
                         
@@ -25,9 +25,6 @@ pipeline {
                         def awsRegion = sh(returnStdout: true, script: 'aws configure get region').trim()
                         def bucketName = 'terraformbucket'
 
-                        // // Generate a unique S3 bucket name based on the current timestamp
-                        // def uniqueBucketName = "${bucketName}-${System.currentTimeMillis()}"
-                        
                         // Create infra using Terraform
                         dir('project'){sh " terraform init \
                             -var 'access_key=${awsAccessKeyId}' \
